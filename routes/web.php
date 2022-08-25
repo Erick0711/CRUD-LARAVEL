@@ -14,12 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-// Route::resource('/projecto',ProjectoController::class);
-Route::get('registro',[ProjectoController::class, 'index'])->name('registro');
+Route::get('/',[ProjectoController::class, 'index'])->name('registro');
+Route::get('/registro/create',[ProjectoController::class, 'create'])->name('registro.create');
+Route::post('/registro/store',[ProjectoController::class, 'store'])->name('registro.store');
+
+Route::get('/registro/{id}/edit',[ProjectoController::class, 'edit'])->name('registro.edit');
+Route::put('/registro/{id}/update',[ProjectoController::class, 'update'])->name('registro.update');
+
+Route::delete('/registro/{id}',[ProjectoController::class, 'destroy'])->name('registro.destroy');
 
 Route::middleware([
     'auth:sanctum',

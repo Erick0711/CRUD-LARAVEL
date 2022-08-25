@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Projecto extends Model
 {
     use HasFactory;
-    public $timestamp = false;
+    public $timestamps = false;
     public $table = 'usuarios';
     public $fillable = ['id','codigo','nombre','apellido','pais','nivel_de_equipo','correo','estado'];
 }
